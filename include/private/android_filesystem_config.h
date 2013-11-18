@@ -72,7 +72,11 @@
 #define AID_CLAT          1029  /* clat part of nat464 */
 #define AID_LOOP_RADIO    1030  /* loop radio devices */
 #define AID_MEDIA_DRM     1031  /* MediaDrm plugins */
-#define AID_AUDIT         1032  /* audit daemon */
+#define AID_PACKAGE_INFO  1032  /* access to installed package details */
+#define AID_SDCARD_PICS   1033  /* external storage photos access */
+#define AID_SDCARD_AV     1034  /* external storage audio/video access */
+#define AID_SDCARD_ALL    1035  /* access all users external storage */
+#define AID_AUDIT         1036  /* audit daemon */
 
 #define AID_THEMEMAN      1300  /* theme manager */
 
@@ -93,6 +97,7 @@
 #define AID_QCOM_ONCRPC   3009  /* can read/write /dev/oncrpc files */
 #define AID_QCOM_DIAG     3010  /* can read/write /dev/diag */
 
+#define AID_MOT_OSH       5000  /* OSH */
 #define AID_MOT_ACCY      9000  /* access to accessory */
 #define AID_MOT_PWRIC     9001  /* power IC */
 #define AID_MOT_USB       9002  /* mot usb */
@@ -168,6 +173,7 @@ static const struct android_id_info android_ids[] = {
     { "loop_radio", AID_LOOP_RADIO, },
     { "qcom_oncrpc", AID_QCOM_ONCRPC, },
     { "qcom_diag", AID_QCOM_DIAG, },
+    { "mot_osh",   AID_MOT_OSH, },
     { "mot_accy",  AID_MOT_ACCY, },
     { "mot_pwric", AID_MOT_PWRIC, },
     { "mot_usb",   AID_MOT_USB, },
