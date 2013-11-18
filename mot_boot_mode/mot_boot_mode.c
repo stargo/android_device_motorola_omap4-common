@@ -84,7 +84,7 @@ int check_bootinfo(const char * field, const char* value)
  * ******************************************************************/
 int check_abnormal_reboot(void)
 {
-    char abnormal_boot[32];
+    char abnormal_boot[PROPERTY_VALUE_MAX];
 
     memset(abnormal_boot, 0, 32);
 
@@ -109,7 +109,7 @@ int check_abnormal_reboot(void)
 #define COM_FS_PATH "/data/chargeonlymode"
 #define COM_MAX_MODE_LENGTH 20
 
-char* mode[COM_MAX_MODE_LENGTH];
+char mode[COM_MAX_MODE_LENGTH];
 
 /********************************************************************
  * Check previous phone mode before reset 
@@ -147,7 +147,7 @@ int check_com_reset(void)
  ********************************************************************/
 int boot_reason_charge_only(void)
 {
-    char powerup_reason[32];
+    char powerup_reason[PROPERTY_VALUE_MAX];
 
     memset(powerup_reason, 0, 32);
 
@@ -174,7 +174,7 @@ int boot_reason_charge_only(void)
  * ******************************************************************/
 int check_cid_recover_boot(void)
 {
-    char cid_recover_boot[32];
+    char cid_recover_boot[PROPERTY_VALUE_MAX];
 
     memset(cid_recover_boot, 0, 32);
 
