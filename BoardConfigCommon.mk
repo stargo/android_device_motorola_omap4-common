@@ -169,6 +169,7 @@ USE_OPENGL_RENDERER := true
 BOARD_USE_CUSTOM_LIBION := true
 #TARGET_HAS_WAITFORVSYNC := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+TARGET_USES_OPENGLES_FOR_SCREEN_CAPTURE := true
 
 # Makefile variable and C/C++ macro to recognise DOMX version
 ifdef BOARD_USE_TI_ENHANCED_DOMX
@@ -231,6 +232,9 @@ BOARD_USES_SECURE_SERVICES := true
 BOARD_HAS_MAPPHONE_SWITCH := true
 USE_IPV6_ROUTE := true
 BOARD_RIL_NO_CELLINFOLIST := true
+
+# Override healthd HAL to use charge_counter for 1%
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.omap4
 
 BOARD_SEPOLICY_DIRS += \
     device/motorola/omap4-common/sepolicy
