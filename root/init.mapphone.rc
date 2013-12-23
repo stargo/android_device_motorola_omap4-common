@@ -82,9 +82,6 @@ on post-fs
     # Disable automatic power control for OHCI USB IPC Temporarily
     #    write /sys/devices/platform/ohci-omap3/usb1/1-1/power/control auto
 
-# kill green LED at boot
-    write /sys/class/leds/green/brightness 0
-
 # NFC configuration
     # Reset system time
     write /sys/class/rtc/rtc0/unsecured_rtc on
@@ -160,7 +157,6 @@ on post-fs
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
 on post-fs-data
-    mount rootfs rootfs / ro remount
     mkdir /data/tmp 0777 system system
     chown system system /mnt/sdcard # Feature 34534
     chmod 0777 /mnt/sdcard # Feature 34534
