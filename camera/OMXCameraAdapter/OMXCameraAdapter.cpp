@@ -934,6 +934,13 @@ void OMXCameraAdapter::getParameters(android::CameraParameters& params)
     params.set(TICameraParameters::KEY_FRAMERATE_RANGES_EXT_SUPPORTED,
                mCapabilities->get(CameraProperties::FRAMERATE_RANGE_EXT_SUPPORTED));
 
+    // Camera needs info about max-saturation, max-contrast and max-sharpness
+    params.set("max-saturation", DEFAULT_SATURATION);
+
+    params.set("max-contrast", DEFAULT_CONTRAST);
+
+    params.set("max-sharpness", DEFAULT_SHARPNESS);
+
     LOG_FUNCTION_NAME_EXIT;
 }
 
