@@ -1070,17 +1070,6 @@ static IMG_BOOL ProcessFlipV2(IMG_HANDLE hCmdCookie,
 			continue;
 		}
 
-		/* Calculate whether we get an address which lies in the range of the frame
-		 * buffer, if we do pass this on directly to dsscomp.
-		 */
-	        if (phyAddr.uiAddr >= psDevInfo->psLINFBInfo->fix.smem_start &&
-		        phyAddr.uiAddr < (psDevInfo->psLINFBInfo->fix.smem_start + psDevInfo->psLINFBInfo->fix.smem_len))
-		{
-			asMemInfo[k].uiAddr = phyAddr.uiAddr;
-		        continue;
-		}
-
-		/* Normal gralloc layer */
 		psTilerInfo = kzalloc(sizeof(*psTilerInfo), GFP_KERNEL);
 		if(!psTilerInfo)
 		{
