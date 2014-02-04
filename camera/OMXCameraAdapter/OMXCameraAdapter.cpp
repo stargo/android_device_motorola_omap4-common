@@ -129,8 +129,7 @@ status_t OMXCameraAdapter::initialize(CameraProperties::Properties* caps)
     mComponentState = OMX_StateLoaded;
 
     CAMHAL_LOGVB("OMX_GetHandle -0x%x sensor_index = %lu", eError, mSensorIndex);
-// FIXME-HASH: REMOVED FOR NOW
-//  initDccFileDataSave(&mCameraAdapterParameters.mHandleComp, mCameraAdapterParameters.mPrevPortIndex);
+    initDccFileDataSave(&mCameraAdapterParameters.mHandleComp, mCameraAdapterParameters.mPrevPortIndex);
 
     eError = OMX_SendCommand(mCameraAdapterParameters.mHandleComp,
                                   OMX_CommandPortDisable,
@@ -3590,8 +3589,7 @@ OMX_ERRORTYPE OMXCameraAdapter::OMXCameraAdapterFillBufferDone(OMX_IN OMX_HANDLE
             }
         }
 
-// FIXME-HASH: REMOVED FOR NOW
-//      sniffDccFileDataSave(pBuffHeader);
+        sniffDccFileDataSave(pBuffHeader);
 
         stat |= advanceZoom();
 
@@ -4151,8 +4149,7 @@ OMXCameraAdapter::OMXCameraAdapter(size_t sensor_index)
     // Initial values
     mTimeSourceDelta = 0;
     onlyOnce = true;
-// FIXME-HASH: REMOVED FOR NOW
-//    mDccData.pData = NULL;
+    mDccData.pData = NULL;
 
     mInitSem.Create(0);
     mFlushSem.Create(0);
@@ -4200,12 +4197,9 @@ OMXCameraAdapter::~OMXCameraAdapter()
     switchToLoaded();
 
     if ( mOmxInitialized ) {
-// FIXME-HASH: REMOVED FOR NOW
-#if 0
         saveDccFileDataSave();
 
         closeDccFileDataSave();
-#endif
         // deinit the OMX
         if ( mComponentState == OMX_StateLoaded || mComponentState == OMX_StateInvalid ) {
             // free the handle for the Camera component
